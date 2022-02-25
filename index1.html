@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="myImage" src="xuka.jpg" height="100" width="100"/><br>
+<button onclick="moveRight()">right</button>
+<button onclick="moveLeft()">left</button>
+<button onclick="moveDown()">down</button>
+<button onclick="moveUp()">up</button>
+<button onclick="move1()">move1</button>
+<button onclick="move2()">move2</button>
+<button onclick="move3()">move3</button>
+<button onclick="move4()">move4</button>
+</body>
+</html>
+<script>
+    let myImage = document.getElementById('myImage');
+    function initImage() {
+        myImage.style.position = 'relative';
+        myImage.style.left = 0 + 'px'
+        myImage.style.top = 0 + 'px'
+    }
+    initImage();
+    function moveRight() {
+        myImage.style.left = parseInt(myImage.style.left) +20 + 'px'
+    }
+    function moveLeft() {
+        myImage.style.left = parseInt(myImage.style.left) -20 + 'px'
+    }
+    function moveDown() {
+        myImage.style.top = parseInt(myImage.style.top) + 20 + 'px'
+    }
+    function moveUp() {
+        myImage.style.top = parseInt(myImage.style.top) - 20 + 'px'
+    }
+    function  move1() {
+        myImage.style.left = parseInt(myImage.style.left) +20 + 'px'
+        myImage.style.top = parseInt(myImage.style.top) + 20 + 'px'
+    }
+    function  move2() {
+        myImage.style.left = parseInt(myImage.style.left) -20 + 'px'
+        myImage.style.top = parseInt(myImage.style.top) - 20 + 'px'
+    }
+    function  move3() {
+        myImage.style.left = parseInt(myImage.style.left) -20 + 'px'
+        myImage.style.top = parseInt(myImage.style.top) + 20 + 'px'
+    }
+    function  move4() {
+        myImage.style.left = parseInt(myImage.style.left) +20 + 'px'
+        myImage.style.top = parseInt(myImage.style.top) - 20 + 'px'
+    }
+    function moveWithKeyBoard(evt) {
+        switch (evt.keyCode) {
+            case 38:
+                moveUp();
+                break;
+            case 37:
+                moveLeft();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 40:
+                moveDown();
+                break;
+            case 49:
+                move1();
+                break;
+            case 50:
+                move2();
+                break;
+            case 51:
+                move3();
+                break;
+            case 52:
+                move4();
+                break;
+        }
+    }
+    function doWorking() {
+        addEventListener('keydown',moveWithKeyBoard)
+    }
+    document.body.onload = doWorking
+
+</script>
